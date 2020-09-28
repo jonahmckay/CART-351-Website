@@ -1,0 +1,60 @@
+html, body
+{
+  font-family: sans-serif;
+  height: 100%;
+  margin: 0;
+}
+header
+{
+  text-align: left;
+  margin-bottom: 10px;
+  border-bottom: solid 1px black;
+}
+
+#main_grid
+{
+  display: flex;
+  flex-flow: row wrap;
+  height: 80%;
+  justify-content: center;
+}
+
+.box
+{
+  width: 45%;
+  height: 50%;
+  margin: 5px;
+  border: solid 1px black;
+  font-size: 150%;
+  padding: 5px;
+}
+
+@keyframes hoverOrange
+{
+  0%
+  {
+    border: solid 1px black;
+  }
+
+  50%
+  {
+    border: solid 1px blue;
+  }
+
+  100%
+  {
+    border: solid 1px orange;
+  }
+}
+
+.box:hover
+{
+  animation-name: hoverOrange;
+  animation: hoverOrange 0.4s;
+  animation-fill-mode: both;
+}
+.box_header
+{
+  text-align: center;
+
+}

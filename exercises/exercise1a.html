@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <title>EXERCISE 1A</title>
+  <meta charset="UTF-8">
+  <style>
+  #c {
+      background-color: #3e181b;
+      border: 3px solid #db1d2d;}
+
+  #d {
+      background-color: #422018;
+      border: 3px solid #f0421c;}
+
+  #e {
+      background-color: #45391b;
+      border: 3px solid #fec02d;}
+
+  body{
+        background:black;
+      }
+
+  .para {color:white;font-size:22pt; background:purple;margin-left: 1%;margin-top: 1%; padding:1%;}
+
+      .box {
+      width: 10vw; /*(1/10th) viewport width */
+      height: 10vw;
+      margin-left: 1%;
+      margin-top: 1%;
+      display:inline-block;
+    }
+  .wrapper{
+    margin-left:30%;
+    margin-top:15%;
+  }
+  </style>
+  <script>
+  "use strict"
+  function eventCallback(e)
+  {
+
+    if (e.target.id === "displayText")
+    {
+      document.getElementById("displayText").style.display = "none";
+    }
+    else {
+      document.getElementById("displayText").style.display = "inline-block";
+
+      let boxID = e.target.id.toUpperCase();
+
+      document.getElementById("displayText").textContent = `This is Text For Box ${boxID}`;
+    }
+  }
+
+  window.onload = function(){
+    console.log("testing");
+    let boxes = document.getElementsByClassName("box");
+    for (let i = 0; i < boxes.length; i++)
+    {
+      boxes[i].addEventListener("click", eventCallback);
+    }
+    document.getElementById("displayText").addEventListener("click", eventCallback);
+  } //on load
+
+
+  </script>
+</head>
+<body>
+  <div class = "wrapper">
+  <div id = "c" class = "box"></div>
+  <div id = "d" class = "box"></div>
+  <div id = "e" class = "box"></div>
+  <br />
+  <p style = "display:none;" id = "displayText" class = "para"></p>
+</div>
+
+</body>
+</html>
