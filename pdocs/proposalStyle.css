@@ -1,0 +1,38 @@
+html
+{
+  background-color: #7AC740;
+  font-family: Arial, sans-serif;
+  font-size: 1.1em;
+}
+
+#contents
+{
+  background-color: #C2C9FF;
+  padding: 1em;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.textBlock
+{
+  margin-left: 2em;
+}
+
+.imageBlock
+{
+  width: 50%;
+  margin-left: 25%;
+}
+
+.containedImage
+{
+  object-fit: contain;
+  width:100%;
+}
+
+.divider
+{
+  margin-bottom: 5px;
+  width: 100%;
+  border-bottom: 2px solid black;
+}

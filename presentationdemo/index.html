@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+  </head>
+  <body>
+    <script src="./code.js"></script>
+
+
+    <h3>Oscillator Node Demo:</h3>
+    <!-- <label for="gain">Gain</label>
+    <input type="number" id="gain" name="gain" value="50" min="0" max="100"  onclick="gain()">  -->
+    <label for="freq">Frequency</label>
+    <input type="number" id="freq" name="freq" value="440" min="220" max="880"  onchange="frequency()">
+    <label for="detune">Detuning</label>
+    <input type="number" id="detune" name="detune" value="0" min="-250" max="250"  onchange="detune()">
+    <label for="wave">Wave Type/Shape:</label>
+    <select name="wave" id="wave" onclick="waveType()">
+      <option value="sine">sine</option>
+      <option value="square">square</option>
+      <option value="sawtooth">sawtooth</option>
+      <option value="triangle">triangle</option>
+    </select>
+    <input type="button" value="Stop" onclick="stop()">
+    <input type="button" value="Start" onclick="start()">
+
+    <h3>File Node Demo</h3>
+    <audio src="./bell.wav" id="bell"></audio>
+    <input type="button" value="Pause" onclick="stopFile()">
+    <input type="button" value="Play" onclick="startFile()">
+    <input type="range" id="fileVolume" min="0" max="2" value="1" step="0.01">
+
+  </body>
+</html>
