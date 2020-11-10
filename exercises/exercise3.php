@@ -1,4 +1,36 @@
-<!DOCTYPE html>
+<?php
+//check if there has been something posted to the server to be processed
+if($_SERVER['REQUEST_METHOD'] == 'GET')
+{
+
+//code modified from https://www.codegrepper.com/code-examples/php/append+data+to+json+file+php
+if (isset($_GET["name"]))
+{
+  $data = $_GET;
+
+  if (isset($_GET["natural"]))
+  {
+    $_GET["natural"] = true;
+  }
+  else
+  {
+    $_GET["natural"] = false;
+  }
+  $data["colourWords"] = array($data["colourWords"]);
+
+  $exerciseData = file_get_contents('exercise3data.json');
+  $tempArray = json_decode($exerciseData);
+  array_push($tempArray, array($data));
+  $jsonData = json_encode($tempArray);
+  file_put_contents('exercise3data.json', $jsonData);
+
+  header("Location:exercise3.php");
+}
+
+
+}
+?>
+
 <html>
 
 
@@ -24,13 +56,17 @@
       padding:5px;
       border: 1px solid black;
     }
+    .descriptionInput
+    {
+      height: 4em;
+    }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
   "use strict"
 
   let jsonData;
-  $.getJSON("./exercise2data.json",
+  $.getJSON("./exercise3data.json",
     function(data)
     {
         jsonData = data;
@@ -260,6 +296,21 @@
   <h3>Results:</h3>
   <div id="searchResults"> Make a query!
 
+  </div>
+  <div id="formWrapper">
+    <h2>Add a knickknack!</h2>
+    <form method="get" action="exercise3.php">
+      <p><label>Title</label><input type = "text" size="24" maxlength = "40"  name = "name" required></p>
+      <p><label>Description</label><input class="descriptionInput" type = "text" size="24" maxlength = "400"  name = "description" required></p>
+      <p><label>Colours</label><input type = "text" size="24" maxlength = "400"  name = "colourWords" required></p>
+      <p><label>Date</label><input type = "text" size="24" maxlength = "400"  name = "dateFound" required></p>
+      <p><label>Size</label><input type = "number" size="24" maxlength = "40" step="any" name = "size" min="0.001" max="100" required></p>
+      <p><label>Rating</label><input type = "number" size="24" maxlength = "40"  name = "starRating" min="1" max="5" required></p>
+      <p><label>Natural?</label><input type = "checkbox" name = "natural"></p>
+
+      <p><input type = "submit" name = "submit" value = "send" id =button /></p>
+
+    </form>
   </div>
 </body>
 </html>
