@@ -3,12 +3,7 @@ html, body
   font-family: sans-serif;
   height: 100%;
   margin: 0;
-}
-header
-{
-  text-align: left;
-  margin-bottom: 10px;
-  border-bottom: solid 1px black;
+  background-color: #CCCCFF;
 }
 
 #main_grid
@@ -27,23 +22,49 @@ header
   border: solid 1px black;
   font-size: 150%;
   padding: 5px;
+  background-color: #CCCCFF;
 }
 
+.boxCore
+{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap
+}
+
+.boxP
+{
+  flex: 1 0 40%;
+  margin: 5px;
+}
+
+#header
+{
+  padding-left: 2em;
+  padding-right: 2em;
+
+  text-align: left;
+  margin-bottom: 10px;
+  border-bottom: solid 1px black;
+}
 @keyframes hoverOrange
 {
   0%
   {
     border: solid 1px black;
+    background-color: #CCCCFF;
   }
 
   50%
   {
     border: solid 1px blue;
+    background-color: #9999FF;
   }
 
   100%
   {
     border: solid 1px orange;
+    background-color: #FFBB99;
   }
 }
 
@@ -56,5 +77,5 @@ header
 .box_header
 {
   text-align: center;
-
+  font-weight: bold;
 }
